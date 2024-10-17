@@ -38,7 +38,7 @@ function reset() {
 let radios = document.getElementsByName("difficult");
 for(let i = 0; i < radios.length; i++) {    
     radios[i].onclick = function() {
-        elSpawnTimer = difficultList[i]
+        elSpawnTimer = difficultList[i];
     }
 }
 
@@ -55,11 +55,38 @@ let start = function() {
     const constInterval = setInterval(function timer() {
         elTimer.innerText = constTimer - parseInt((new Date() - now) / 1000);
         if (elTimer.innerText <= 0) {
-            alert("Ваш результат: " + elCount.innerText);
+            records();
             document.getElementById("МухаПНГ").removeEventListener("click", change);
             clearInterval(constInterval);
             reset();
             turnOffRadio(false);
         }
     }, 100);
+}
+
+let addRecord = function() {
+    const name = prompt("Результат: " + elCount.innerText + "\r\nКто ты, Воин?");
+    if (name) {
+        $("tbody").append("<tr><td>?</td><td >" + elCount.innerText + "</td><td>" + name + "</td></tr>");
+    }
+}
+
+let sortRecords = function() {
+    let tbody = $('tbody');
+    tbody.find('tr').sort(function(a, b) {
+        return $('td:eq(1)', b).text().localeCompare($('td:eq(1)', a).text());
+    }).appendTo(tbody);
+}
+
+let fillPlaces = function() {
+    let recordRows = $('tbody').find('tr');
+    for (let i = 0; i < recordRows.length; i++) {
+        recordRows.eq(i).find('td').eq(0).html(i + 1);
+    }
+}
+
+let records = function() {
+    addRecord();
+    sortRecords();
+    fillPlaces();
 }

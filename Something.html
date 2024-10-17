@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="script.js" defer></script>
+    <script type="text/javascript" src="jquery-3.7.1.min.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
               <div class="Kvass2"> Прибить муху</div>
               <div class="Kvass3"> Делать ДЗ</div>
               <div class="Kvass4"> Счёт: <span id="countSpan">0</span></div>
-              <div class="Kvass5"> Время: <span id="timerSpan">60</span></div>
+              <div class="Kvass5"> Время: <span id="timerSpan">2</span></div>
               <div class="Kvass6">
                 <div>Сложность:</div>
                 <div>
@@ -47,7 +48,17 @@
         </div>
       </div>
       <div class="Leaderboard">
-        
+        <table id="lb" border="1" border-color="black">
+          <thead>
+            <tr>
+              <td><b>Место</b></td>
+              <td><b>Количество прибитых мух</b></td>
+              <td><b>Никнейм</b></td>
+            </tr>
+          </thead>
+          <tbody id="lb_body"><tr>
+          </tbody>
+        </table>
       </div>
 </body>
 </html>
