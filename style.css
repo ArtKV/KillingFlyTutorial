@@ -1,0 +1,73 @@
+.TwinTowers {
+    height: 600px;
+    width: 1000px;
+    background-color: black;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 35px;
+    margin: auto;
+}
+
+.ProstoTak {
+    height: 570px;
+    width: 950px;
+    background-color: rgb(173, 173, 173);
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    text-indent: 50px;
+    display: flex;
+    row-gap: 2;
+}
+
+.rules {
+    height: 80%;
+    width: 250px;
+    background-color: rgb(119, 115, 115);
+    margin-left: 15px;
+    margin-top: 65px;
+}
+
+.Kvass1 {
+    background-color: rgba(0, 0, 0, 0);    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-indent: 10px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.Kvass-1{
+    padding-left: 12px;
+}
+
+.Kvass-1, .Kvass, .Kvass2, .Kvass3, .Kvass4, .Kvass5, .Kvass6 {
+    background-color: rgba(0, 0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-indent: 10px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-top: 15px;
+}
+
+.Арена {
+    width: 650px;
+    height: 59%;
+    background-color: rgb(110, 107, 107);
+    margin-left: 300px;
+    margin-top: 65px;
+    position: absolute;
+    cursor: url("м1.png"), auto;
+}
+
+#РабСистемы {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    position: relative;
+    top: auto;
+    left: auto;
+}
