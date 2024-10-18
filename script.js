@@ -13,6 +13,27 @@ difficultList = [3000, 2000, 1000, 500];
 elSpawnTimer = difficultList[0];
 const constTimer = parseInt(elTimer.innerText);
 let now = new Date();
+let radios = document.getElementsByName("difficult");
+
+let init = function() {
+    for( let i = 0; i < radios.length; i++) {    
+        radios[i].onclick = function() {
+            elSpawnTimer = difficultList[i];
+        }
+    }
+    change2();
+    showLeaderboard();
+    $('#difficultChoose').change(showLeaderboard);
+}
+
+let hideAllTables = function() {
+    $('table').hide();
+}
+
+let showLeaderboard = function() {
+    hideAllTables();
+    $('table:eq(' + $('#difficultChoose').val() + ')').show();
+}
 
 let change2 = function() {
     fly.style.top = String(Math.random() * height) + "px";
@@ -35,19 +56,10 @@ function reset() {
     turnOffRadio(true);
 }
 
-let radios = document.getElementsByName("difficult");
-for(let i = 0; i < radios.length; i++) {    
-    radios[i].onclick = function() {
-        elSpawnTimer = difficultList[i];
-    }
-}
-
 function turnOffRadio(onOff) {
     for (let i = 0; i < radios.length; i++)
         radios[i].disabled = onOff;
 }
-
-change2();
 
 let start = function() {
     document.getElementById("МухаПНГ").addEventListener("click", change);
@@ -55,7 +67,8 @@ let start = function() {
     const constInterval = setInterval(function timer() {
         elTimer.innerText = constTimer - parseInt((new Date() - now) / 1000);
         if (elTimer.innerText <= 0) {
-            records();
+            let tableNum = $('input[name=difficult]:checked').val();
+            records(tableNum);
             document.getElementById("МухаПНГ").removeEventListener("click", change);
             clearInterval(constInterval);
             reset();
@@ -64,29 +77,32 @@ let start = function() {
     }, 100);
 }
 
-let addRecord = function() {
+let addRecord = function(tableNum) {
     const name = prompt("Результат: " + elCount.innerText + "\r\nКто ты, Воин?");
     if (name) {
-        $("tbody").append("<tr><td>?</td><td >" + elCount.innerText + "</td><td>" + name + "</td></tr>");
+        console.log('tableNum'+ tableNum);
+        $('tbody:eq('+tableNum+')').append("<tr><td>?</td><td >" + elCount.innerText + "</td><td>" + name + "</td></tr>");
     }
 }
 
-let sortRecords = function() {
-    let tbody = $('tbody');
+let sortRecords = function(tableNum) {
+    let tbody = $('tbody:eq('+tableNum+')');
     tbody.find('tr').sort(function(a, b) {
-        return $('td:eq(1)', b).text().localeCompare($('td:eq(1)', a).text());
+        return $('td:eq(1)', b).text().localeCompare($('td:eq(1)', a).text(), undefined, {numeric: true});
     }).appendTo(tbody);
 }
 
-let fillPlaces = function() {
-    let recordRows = $('tbody').find('tr');
+let fillPlaces = function(tableNum) {
+    let recordRows = $('tbody:eq('+tableNum+')').find('tr');
     for (let i = 0; i < recordRows.length; i++) {
         recordRows.eq(i).find('td').eq(0).html(i + 1);
     }
 }
 
-let records = function() {
-    addRecord();
-    sortRecords();
-    fillPlaces();
+let records = function(tableNum) {
+    addRecord(tableNum);
+    sortRecords(tableNum);
+    fillPlaces(tableNum);
 }
+
+init();
