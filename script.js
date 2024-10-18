@@ -26,13 +26,13 @@ let init = function() {
     $('#difficultChoose').change(showLeaderboard);
 }
 
-let hideAllTables = function() {
-    $('table').hide();
+let hideAllTBodies = function() {
+    $('tbody').hide();
 }
 
 let showLeaderboard = function() {
-    hideAllTables();
-    $('table:eq(' + $('#difficultChoose').val() + ')').show();
+    hideAllTBodies();
+    $('tbody:eq(' + $('#difficultChoose').val() + ')').show();
 }
 
 let change2 = function() {
@@ -67,8 +67,8 @@ let start = function() {
     const constInterval = setInterval(function timer() {
         elTimer.innerText = constTimer - parseInt((new Date() - now) / 1000);
         if (elTimer.innerText <= 0) {
-            let tableNum = $('input[name=difficult]:checked').val();
-            records(tableNum);
+            let tbodyNum = $('input[name=difficult]:checked').val();
+            records(tbodyNum);
             document.getElementById("МухаПНГ").removeEventListener("click", change);
             clearInterval(constInterval);
             reset();
@@ -77,32 +77,31 @@ let start = function() {
     }, 100);
 }
 
-let addRecord = function(tableNum) {
+let addRecord = function(tbodyNum) {
     const name = prompt("Результат: " + elCount.innerText + "\r\nКто ты, Воин?");
     if (name) {
-        console.log('tableNum'+ tableNum);
-        $('tbody:eq('+tableNum+')').append("<tr><td>?</td><td >" + elCount.innerText + "</td><td>" + name + "</td></tr>");
+        $('tbody:eq('+tbodyNum+')').append("<tr><td>?</td><td >" + elCount.innerText + "</td><td>" + name + "</td></tr>");
     }
 }
 
-let sortRecords = function(tableNum) {
-    let tbody = $('tbody:eq('+tableNum+')');
+let sortRecords = function(tbodyNum) {
+    let tbody = $('tbody:eq('+tbodyNum+')');
     tbody.find('tr').sort(function(a, b) {
         return $('td:eq(1)', b).text().localeCompare($('td:eq(1)', a).text(), undefined, {numeric: true});
     }).appendTo(tbody);
 }
 
-let fillPlaces = function(tableNum) {
-    let recordRows = $('tbody:eq('+tableNum+')').find('tr');
+let fillPlaces = function(tbodyNum) {
+    let recordRows = $('tbody:eq('+tbodyNum+')').find('tr');
     for (let i = 0; i < recordRows.length; i++) {
         recordRows.eq(i).find('td').eq(0).html(i + 1);
     }
 }
 
-let records = function(tableNum) {
-    addRecord(tableNum);
-    sortRecords(tableNum);
-    fillPlaces(tableNum);
+let records = function(tbodyNum) {
+    addRecord(tbodyNum);
+    sortRecords(tbodyNum);
+    fillPlaces(tbodyNum);
 }
 
 init();
