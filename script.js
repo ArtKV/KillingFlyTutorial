@@ -9,11 +9,13 @@ fly.style.left = String(Math.random() * width - flyW) + "px";
 let audio = new Audio('Удар.mp3');
 let count = 0;
 elCount = document.getElementById("countSpan");
+elAccuracy = document.getElementById("accuracySpan");
 elTimer = document.getElementById("timerSpan");
 elFly = document.getElementById("МухаПНГ");
 difficultList = [3000, 2000, 1000, 500];
 elSpawnTimer = difficultList[0];
 const constTimer = parseInt(elTimer.innerText);
+let clickCount = 0;
 let now = new Date();
 let radios = document.getElementsByName("difficult");
 
@@ -26,6 +28,7 @@ let init = function() {
     change2();
     showLeaderboard();
     $('#difficultChoose').change(showLeaderboard);
+    $('.Арена').on('click', function(){clickCount++; elAccuracy.innerText = Math.round(elCount.innerText / clickCount * 100 * 100) / 100 + '%';});
 }
 
 let hideAllTBodies = function() {
@@ -43,7 +46,7 @@ let change2 = function() {
     fly.style.transform = "rotate(" + Math.random() * 359 + "deg)";
     elFly.style.visibility = "visible";
     setTimeout(change2, elSpawnTimer);
-};
+}
 
 function change() {
     elFly.style.visibility = "hidden";
@@ -53,6 +56,8 @@ function change() {
 
 function reset() {
     elCount.innerText = 0;
+    clickCount = 0;
+    elAccuracy.innerText = '?';
     elTimer.innerText = constTimer;
     now = new Date();
     turnOffRadio(true);
