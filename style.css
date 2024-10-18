@@ -32,6 +32,9 @@ table {
     background-color: rgb(119, 115, 115);
     margin-left: 15px;
     margin-top: 65px;
+    -webkit-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
+    -moz-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
+    box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
 }
 
 .Kvass1 {
@@ -59,11 +62,15 @@ table {
 
 .Арена {
     width: 650px;
-    height: 80%;
+    height: 59%;
     background-color: rgb(110, 107, 107);
-    margin-left: 20px;
+    margin-left: 300px;
     margin-top: 65px;
+    position: absolute;
     cursor: url("м1.png"), auto;
+    -webkit-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
+    -moz-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
+    box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
 }
 
 #РабСистемы {
