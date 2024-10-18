@@ -55,7 +55,8 @@ let start = function() {
     const constInterval = setInterval(function timer() {
         elTimer.innerText = constTimer - parseInt((new Date() - now) / 1000);
         if (elTimer.innerText <= 0) {
-            records();
+            if (radios[radios.length - 1].checked)
+                records();
             document.getElementById("МухаПНГ").removeEventListener("click", change);
             clearInterval(constInterval);
             reset();
