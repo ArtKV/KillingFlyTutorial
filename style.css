@@ -22,12 +22,19 @@
     row-gap: 2;
 }
 
+table {
+    margin: 10px auto;
+}
+
 .rules {
     height: 80%;
     width: 250px;
     background-color: rgb(119, 115, 115);
     margin-left: 15px;
     margin-top: 65px;
+    -webkit-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
+    -moz-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
+    box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
 }
 
 .Kvass1 {
@@ -39,11 +46,11 @@
     margin-top: 15px;
 }
 
-.Kvass-1{
+.Kvass-1 {
     padding-left: 12px;
 }
 
-.Kvass-1, .Kvass, .Kvass2, .Kvass3, .Kvass4, .Kvass5, .Kvass6 {
+.Kvass-1, .Kvass, .Kvass2, .Kvass3, .Kvass4, .Kvass5, .Kvass6, .Kvass44 {
     background-color: rgba(0, 0, 0, 0);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -61,6 +68,9 @@
     margin-top: 65px;
     position: absolute;
     cursor: url("м1.png"), auto;
+    -webkit-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
+    -moz-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
+    box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
 }
 
 #РабСистемы {

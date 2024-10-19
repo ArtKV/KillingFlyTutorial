@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="jquery-3.7.1.min.js" defer></script>
     <script type="text/javascript" src="script.js" defer></script>
     <title>Document</title>
 </head>
@@ -16,29 +17,31 @@
               <div class="Kvass1"> Правила:</div>
               <div class="Kvass2"> Прибить муху</div>
               <div class="Kvass3"> Делать ДЗ</div>
-              <div class="Kvass4"> Счёт: <span id="countSpan">0</span></div>
+              <div class="Kvass4"> Счёт: <span id="countSpan">?</span></div>
+              <div class="Kvass44"> Точность: <span id="accuracySpan">?</span></div>
               <div class="Kvass5"> Время: <span id="timerSpan">60</span></div>
               <div class="Kvass6">
                 <div>Сложность:</div>
                 <div>
-                    <input name="difficult" type="radio" value="easy" checked>
+                    <input name="difficult" type="radio" value=0 checked>
                     <span>Легко</span>
                 </div>
                 <div>
-                    <input name="difficult" type="radio" value="middle">
+                    <input name="difficult" type="radio" value=1>
                     <span>Не очень легко</span>
                 </div>
                 <div>
-                    <input name="difficult" type="radio" value="hard">
-                    <span>Совсем нелегко</span>
+                    <input name="difficult" type="radio" value=2>
+                    <span>Совсем не легко</span>
                 </div>
                 <div>
-                    <input name="difficult" type="radio" value="veryhard">
+                    <input name="difficult" type="radio" value=3>
                     <span>Impossible!</span>
                 </div>
               </div>
               <div class="Kvass7">
-                <button onclick="start()">Убивать</button>
+                <button id="startBtn" onclick="start()">Убивать</button>
+                <button id="stopBtn" onclick="stop()">Пощадить</button>
               </div>
             </div>
             <div class="Арена">
@@ -46,8 +49,31 @@
             </div>
         </div>
       </div>
+      <select id="difficultChoose">
+        <option value=0>Сложность 1</option>
+        <option value=1>Сложность 2</option>
+        <option value=2>Сложность 3</option>
+        <option value=3>Сложность 4</option>
+      </select>
       <div class="Leaderboard">
-        
+        <table id="lb0" border="1" border-color="black">
+          <caption>Таблица рекордов</caption>
+          <thead>
+            <tr>
+              <td><b>Место</b></td>
+              <td><b>Количество прибитых мух</b></td>
+              <td><b>Никнейм</b></td>
+            </tr>
+          </thead>
+          <tbody id="lb_body0">
+          </tbody>
+          <tbody id="lb_body1">
+          </tbody>
+          <tbody id="lb_body2">
+          </tbody>
+          <tbody id="lb_body3">
+          </tbody>
+        </table>
       </div>
 </body>
 </html>
