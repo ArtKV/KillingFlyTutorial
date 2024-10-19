@@ -62,11 +62,10 @@ table {
 
 .Арена {
     width: 650px;
-    height: 59%;
+    height: 80%;
     background-color: rgb(110, 107, 107);
-    margin-left: 300px;
+    margin-left: 20px;
     margin-top: 65px;
-    position: absolute;
     cursor: url("м1.png"), auto;
     -webkit-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
     -moz-box-shadow: 0px 10px 15px 7px rgba(34, 60, 80, 0.21);
