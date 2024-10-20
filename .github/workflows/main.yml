@@ -15,7 +15,7 @@ jobs:
       - name: Deploy to Hosting
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ftp://vh438.timeweb.ru
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: KvassFly/public_html/
